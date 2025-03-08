@@ -114,6 +114,8 @@ def calculate_diagonal_text_size(width, height, font, text, diagonal_fill):
 
 def watermark_images(directory, config):
     text = config.get("text", DEFAULT_CONFIG["text"])
+    text = bytes(text, "utf-8").decode("unicode_escape")
+    
     opacity = config.get("opacity", DEFAULT_CONFIG["opacity"])
     font_size_factor = config.get("font_size_factor", DEFAULT_CONFIG["font_size_factor"])
     max_text_width = config.get("max_text_width", DEFAULT_CONFIG["max_text_width"])
